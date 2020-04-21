@@ -1,0 +1,96 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;</TargetFrameworks>
+    <LangVersion>8.0</LangVersion>
+    <Copyright>Copyright 2018.</Copyright>
+    <Authors>SmallChi</Authors>
+    <PackageId>JT808</PackageId>
+    <Product>JT808</Product>
+    <Description>JT808协议、GB808协议、道路运输车辆卫星定位系统-北斗兼容车载终端通讯协议(支持2013、2019版本)</Description>
+    <PackageReleaseNotes>JT808协议、GB808协议、道路运输车辆卫星定位系统-北斗兼容车载终端通讯协议(支持2013、2019版本)</PackageReleaseNotes>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <RepositoryUrl>https://github.com/SmallChi/JT808</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/SmallChi/JT808</PackageProjectUrl>
+    <licenseUrl>https://github.com/SmallChi/JT808/blob/master/LICENSE</licenseUrl>
+    <license>https://github.com/SmallChi/JT808/blob/master/LICENSE</license>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <Version>2.2.2</Version>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>$(OutputPath)$(MSBuildProjectName).xml</DocumentationFile>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
+    <DocumentationFile>$(OutputPath)$(MSBuildProjectName).xml</DocumentationFile>
+    <OutputPath />
+    <NoWarn>1701;1702;CS1591;CS1572;CS1573;CS1574;CS1570;</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Formatters\MessageBodyFormatters\**" />
+    <Compile Remove="Metadata\JT808LocationAttachProperties\**" />
+    <EmbeddedResource Remove="Formatters\MessageBodyFormatters\**" />
+    <EmbeddedResource Remove="Metadata\JT808LocationAttachProperties\**" />
+    <None Remove="Formatters\MessageBodyFormatters\**" />
+    <None Remove="Metadata\JT808LocationAttachProperties\**" />
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Formatters\JT808HeaderFormatter.cs" />
+    <Compile Remove="Formatters\JT808HeaderPackageFormatter.cs" />
+    <Compile Remove="Formatters\JT808PackageFormatter.cs" />
+    <Compile Remove="Formatters\JT808SplitPackageBodiesFormatter.cs" />
+    <Compile Remove="IJT808BufferedEntity.cs" />
+    <Compile Remove="IJT808Properties.cs" />
+    <Compile Remove="JT808BufferedEntityBase.cs" />
+    <Compile Remove="JT808GlobalConfig.cs" />
+    <Compile Remove="JT808MessageBodyFactory.cs" />
+    <Compile Remove="Metadata\JT808TerminalLoginRequestProperty.cs" />
+    <Compile Remove="Metadata\JT808UploadLocationRequestProperty.cs" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
+    <PackageReference Include="Microsoft.CSharp" Version="4.6.0" />
+    <PackageReference Include="System.Buffers" Version="4.5.0" />
+    <PackageReference Include="System.Dynamic.Runtime" Version="4.3.0" />
+    <PackageReference Include="System.Memory" Version="4.5.3" />
+    <PackageReference Include="System.Reflection.Extensions" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="System.Text.Encoding.CodePages" Version="4.7.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.0" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Update="Extensions\JT808PackageExtensionsTemplate.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>JT808PackageExtensionsTemplate.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Compile Update="Extensions\JT808PackageExtensionsTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>JT808PackageExtensionsTemplate.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+</Project>

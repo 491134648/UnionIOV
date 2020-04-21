@@ -7,8 +7,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D63F56C0-E89
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "core", "core", "{58171A41-B327-45C8-9D5B-0AB8791B734C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JT808.Protocol", "src\core\JT808\JT808.Protocol.csproj", "{38D4FA23-9D46-4629-B754-BD61B4243DEE}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{C1A0D23A-122B-490B-98F3-275BEAADC1D7}"
 	ProjectSection(SolutionItems) = preProject
 		LICENSE = LICENSE
@@ -16,23 +14,42 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{C1A0D23A-122
 		README.zh-cn.md = README.zh-cn.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{729092FE-9F1C-4680-BCD1-14E9487C80D0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JT808.Protocol.Benchmark", "src\test\JT808.Protocol.Benchmark\JT808.Protocol.Benchmark.csproj", "{56936AC7-C30D-4362-8E83-2E3C860D4375}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JT808.Protocol.Test", "src\test\JT808.Protocol.Test\JT808.Protocol.Test.csproj", "{19CF72A0-0A95-4BD0-92FA-5BBD1D562A88}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JT808.Protocol", "src\core\JT808.Protocol\JT808.Protocol.csproj", "{0E8D602E-CDB8-4EE5-8423-5159AE64597D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{38D4FA23-9D46-4629-B754-BD61B4243DEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{38D4FA23-9D46-4629-B754-BD61B4243DEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{38D4FA23-9D46-4629-B754-BD61B4243DEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{38D4FA23-9D46-4629-B754-BD61B4243DEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56936AC7-C30D-4362-8E83-2E3C860D4375}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56936AC7-C30D-4362-8E83-2E3C860D4375}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56936AC7-C30D-4362-8E83-2E3C860D4375}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56936AC7-C30D-4362-8E83-2E3C860D4375}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19CF72A0-0A95-4BD0-92FA-5BBD1D562A88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19CF72A0-0A95-4BD0-92FA-5BBD1D562A88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19CF72A0-0A95-4BD0-92FA-5BBD1D562A88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19CF72A0-0A95-4BD0-92FA-5BBD1D562A88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E8D602E-CDB8-4EE5-8423-5159AE64597D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E8D602E-CDB8-4EE5-8423-5159AE64597D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E8D602E-CDB8-4EE5-8423-5159AE64597D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E8D602E-CDB8-4EE5-8423-5159AE64597D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{58171A41-B327-45C8-9D5B-0AB8791B734C} = {D63F56C0-E89C-4601-AC17-9D7E785E2EDB}
-		{38D4FA23-9D46-4629-B754-BD61B4243DEE} = {58171A41-B327-45C8-9D5B-0AB8791B734C}
+		{729092FE-9F1C-4680-BCD1-14E9487C80D0} = {D63F56C0-E89C-4601-AC17-9D7E785E2EDB}
+		{56936AC7-C30D-4362-8E83-2E3C860D4375} = {729092FE-9F1C-4680-BCD1-14E9487C80D0}
+		{19CF72A0-0A95-4BD0-92FA-5BBD1D562A88} = {729092FE-9F1C-4680-BCD1-14E9487C80D0}
+		{0E8D602E-CDB8-4EE5-8423-5159AE64597D} = {58171A41-B327-45C8-9D5B-0AB8791B734C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A8EBAF2E-74AE-437B-947A-84B0FACCEA1F}
