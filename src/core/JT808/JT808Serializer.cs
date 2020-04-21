@@ -1,7 +1,5 @@
 ﻿using JT808.Protocol.Enums;
 using JT808.Protocol.Extensions;
-using JT808.Protocol.Formatters;
-using JT808.Protocol.Interfaces;
 using JT808.Protocol.Internal;
 using JT808.Protocol.MessagePack;
 using System;

@@ -5,12 +5,10 @@ namespace JT808.Protocol
     internal static class JT808ArrayPool
     {
         private readonly static ArrayPool<byte> ArrayPool;
-
         static JT808ArrayPool()
         {
             ArrayPool = ArrayPool<byte>.Create();
         }
-
         public static byte[] Rent(int minimumLength)
         {
             return ArrayPool.Rent(minimumLength);
