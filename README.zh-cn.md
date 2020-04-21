@@ -26,7 +26,6 @@ uni-app
 
 本项目以 MIT 协议开源，为了能得到够更好的且可持续的发展，我们期望获得更多的支持者，我们将把所得款项用于社区活动和推广。你可以通过如下任何一种方式支持我们:
 
-- [OpenCollective](https://opencollective.com/ant-design-blazor)
 - [微信](https://www.uniondevice.com/images/qrcode/wechatpay.jpg)
 - [支付宝](https://www.uniondevice.com/images/qrcode/alipay.jpg)
 
