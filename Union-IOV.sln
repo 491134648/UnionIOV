@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30002.166
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D63F56C0-E89C-4601-AC17-9D7E785E2EDB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "core", "core", "{58171A41-B327-45C8-9D5B-0AB8791B734C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JT808.Protocol", "src\core\JT808\JT808.Protocol.csproj", "{38D4FA23-9D46-4629-B754-BD61B4243DEE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{C1A0D23A-122B-490B-98F3-275BEAADC1D7}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE = LICENSE
+		README.md = README.md
+		README.zh-cn.md = README.zh-cn.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{38D4FA23-9D46-4629-B754-BD61B4243DEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38D4FA23-9D46-4629-B754-BD61B4243DEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38D4FA23-9D46-4629-B754-BD61B4243DEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38D4FA23-9D46-4629-B754-BD61B4243DEE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{58171A41-B327-45C8-9D5B-0AB8791B734C} = {D63F56C0-E89C-4601-AC17-9D7E785E2EDB}
+		{38D4FA23-9D46-4629-B754-BD61B4243DEE} = {58171A41-B327-45C8-9D5B-0AB8791B734C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A8EBAF2E-74AE-437B-947A-84B0FACCEA1F}
+	EndGlobalSection
+EndGlobal
