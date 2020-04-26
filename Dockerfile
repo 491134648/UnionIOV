@@ -1,33 +1,21 @@
-FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-alpine AS base
+#See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
 
-RUN apk add libgdiplus --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted && \
-    apk add terminus-font && \
-    apk add --no-cache icu-libs
-# https://www.abhith.net/blog/docker-sql-error-on-aspnet-core-alpine/
-ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT false
-
-FROM mcr.microsoft.com/dotnet/core/sdk:3.1-alpine AS build-env
-WORKDIR /src
-
-# Copy csproj and restore as distinct layers
-# https://andrewlock.net/optimising-asp-net-core-apps-in-docker-avoiding-manually-copying-csproj-files-part-2/
-COPY */*.csproj ./
-RUN for file in $(ls *.csproj); do mkdir -p ${file%.*}/ && mv $file ${file%.*}/; done
-
-## diff between netcore2.2 and netcore3.0
-WORKDIR ./src/application/IotGatewayServer
-RUN dotnet restore
-
-# copy everything and build
-COPY . .
-RUN dotnet publish -c Release -o out src/application/IotGatewayServer/IotGatewayServer.csproj
-
-# build runtime image
-FROM base AS final
-
-LABEL Maintainer="491134648"
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-buster-slim AS base
 WORKDIR /app
-COPY --from=build-env ./src/application/IotGatewayServer/out .
-
 EXPOSE 5000
+
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
+WORKDIR /src
+COPY ["src/application/IotGatewayServer/IotGatewayServer.csproj", "src/application/IotGatewayServer/"]
+RUN dotnet restore "src/application/IotGatewayServer/IotGatewayServer.csproj"
+COPY . .
+WORKDIR "/src/src/application/IotGatewayServer"
+RUN dotnet build "IotGatewayServer.csproj" -c Release -o /app/build
+
+FROM build AS publish
+RUN dotnet publish "IotGatewayServer.csproj" -c Release -o /app/publish
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "IotGatewayServer.dll"]
