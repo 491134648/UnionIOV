@@ -29,5 +29,5 @@ LABEL Maintainer="491134648"
 WORKDIR /app
 COPY --from=build-env ./src/application/IotGatewayServer/out .
 
-EXPOSE 80
+EXPOSE 5000
 ENTRYPOINT ["dotnet", "IotGatewayServer.dll"]
