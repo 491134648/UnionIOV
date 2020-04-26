@@ -25,7 +25,7 @@ steps:
   displayName: 'Use .NET Core sdk'
   inputs:
     packageType: sdk
-    version: 3.1.3
+    version: 3.1.10
 
 - script: dotnet --info
   displayName: 'dotnet info'
@@ -53,13 +53,3 @@ steps:
 - script: docker push $(stableImageName)
   displayName: 'Push stable image'
   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
-
-- task: SSH@0
-  displayName: 'Run shell inline on remote machine'
-  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/dev'))
-  inputs:
-    sshEndpoint: 'uniondevice-vm'
-    runOptions: inline
-
-    inline: |
-      kubectl set image deployment/reservation-server reservation-server=$(imageName) --record=true
