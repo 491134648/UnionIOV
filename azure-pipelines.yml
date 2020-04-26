@@ -54,12 +54,3 @@ steps:
   displayName: 'Push stable image'
   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
 
-- task: SSH@0
-  displayName: 'Run shell inline on remote machine'
-  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/dev'))
-  inputs:
-    sshEndpoint: 'uniondevice-vm'
-    runOptions: inline
-
-    inline: |
-      kubectl set image deployment/reservation-server reservation-server=$(imageName) --record=true
