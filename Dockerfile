@@ -6,8 +6,6 @@ EXPOSE 5000
 EXPOSE 808
 EXPOSE 828
 EXPOSE 20000
-
-
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
 COPY ["src/application/IotGatewayServer/IotGatewayServer.csproj", "src/application/IotGatewayServer/"]
