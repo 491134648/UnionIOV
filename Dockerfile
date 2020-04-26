@@ -9,6 +9,7 @@ WORKDIR /src
 COPY ["src/application/IotGatewayServer/IotGatewayServer.csproj", "src/application/IotGatewayServer/"]
 RUN dotnet restore "src/application/IotGatewayServer/IotGatewayServer.csproj"
 COPY . .
+
 WORKDIR "/src/src/application/IotGatewayServer"
 RUN dotnet build "IotGatewayServer.csproj" -c Release -o /app/build
 
