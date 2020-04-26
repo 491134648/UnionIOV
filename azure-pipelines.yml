@@ -15,7 +15,7 @@ pool:
 
 variables:
   tagName: '$(Build.BuildNumber)'
-  repoName: 'activityreservation'
+  repoName: 'iotgatewayserver'
   stableImageName: '$(dockerId)/$(repoName):stable'
   latestImageName: '$(dockerId)/$(repoName):latest'
   branchImageName: '$(dockerId)/$(repoName):$(Build.SourceBranchName)'
