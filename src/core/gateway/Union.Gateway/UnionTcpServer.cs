@@ -66,10 +66,10 @@ namespace Union.Gateway
         {
             var IPEndPoint = new System.Net.IPEndPoint(IPAddress.Any, Configuration.TcpPort);
             server = new Socket(IPEndPoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
-            //server.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.NoDelay, true);
-            //server.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.KeepAlive, true);
-            //server.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReceiveBuffer, Configuration.MiniNumBufferSize);
-            //server.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.SendBuffer, Configuration.MiniNumBufferSize);
+            server.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.NoDelay, true);
+            server.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.KeepAlive, true);
+            server.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReceiveBuffer, Configuration.MiniNumBufferSize);
+            server.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.SendBuffer, Configuration.MiniNumBufferSize);
             server.LingerState = new LingerOption(false, 0);
             server.Bind(IPEndPoint);
             server.Listen(Configuration.SoBacklog);
