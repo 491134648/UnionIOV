@@ -1,6 +1,6 @@
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-alpine AS base
 
-RUN apk add libgdiplus --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted && \
+RUN apk add libgdiplus --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted && \activityreservation
     apk add terminus-font && \
     apk add --no-cache icu-libs
 # https://www.abhith.net/blog/docker-sql-error-on-aspnet-core-alpine/
@@ -27,7 +27,7 @@ FROM base AS final
 
 LABEL Maintainer="491134648"
 WORKDIR /app
-COPY --from=build-env ./src//application/IotGatewayServer/out .
+COPY --from=build-env ./src/application/IotGatewayServer/out .
 
 EXPOSE 80
 ENTRYPOINT ["dotnet", "IotGatewayServer.dll"]
