@@ -9,6 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "core", "core", "{58171A41-B
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{C1A0D23A-122B-490B-98F3-275BEAADC1D7}"
 	ProjectSection(SolutionItems) = preProject
+		azure-pipelines.yml = azure-pipelines.yml
+		Dockerfile = Dockerfile
 		LICENSE = LICENSE
 		README.md = README.md
 		README.zh-cn.md = README.zh-cn.md
@@ -42,7 +44,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Union.Gateway.Abstractions"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Union.Gateway", "src\core\gateway\Union.Gateway\Union.Gateway.csproj", "{F0130702-5A74-42A9-AF81-240578C965B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IotGatewayServer", "src\application\IotGatewayServer\IotGatewayServer.csproj", "{35CD7475-AF5C-41AD-99E6-8AF30E0831B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IotGatewayServer", "src\application\IotGatewayServer\IotGatewayServer.csproj", "{35CD7475-AF5C-41AD-99E6-8AF30E0831B0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
